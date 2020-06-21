@@ -1,6 +1,8 @@
 package com.blanktheevil.spirebirthdayparty
 
+import basemod.BaseMod
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer
+import com.megacrit.cardcrawl.audio.Sfx
 import java.io.IOException
 import java.util.*
 
@@ -14,9 +16,11 @@ class SpireBirthdayParty {
     var author: String = "[author not loaded]"
     var description: String = "[description not loaded]"
 
+    private lateinit var sfx: Sfx
+
     @JvmStatic
     fun initialize() {
-
+      loadProjectProperties()
     }
 
     private fun loadProjectProperties() {
@@ -32,6 +36,14 @@ class SpireBirthdayParty {
       } catch (e: IOException) {
         e.printStackTrace()
       }
+    }
+
+    private fun loadSFX() {
+      sfx = Sfx("/com/blanktheevil/spirebirthdayparty/sounds/yay.mp3")
+    }
+
+    private fun playSFX() {
+      sfx.play(0.5f)
     }
   }
 }

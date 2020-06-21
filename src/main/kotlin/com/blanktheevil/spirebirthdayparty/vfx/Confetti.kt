@@ -9,7 +9,7 @@ class Confetti : AbstractGameEffect() {
   }
 
   override fun update() {
-
+    this.isDone = true
   }
 
   override fun render(sb: SpriteBatch) {
