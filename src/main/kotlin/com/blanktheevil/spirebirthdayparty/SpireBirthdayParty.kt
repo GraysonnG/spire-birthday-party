@@ -46,7 +46,7 @@ class SpireBirthdayParty : PostInitializeSubscriber {
     }
 
     fun YAAAAY() {
-      sfx.play(0.08f)
+      sfx.play(0.04f)
     }
   }
 
