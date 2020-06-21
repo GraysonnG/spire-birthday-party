@@ -23,7 +23,8 @@ class Confetti(hb: Hitbox) : AbstractGameEffect() {
   )
 
   val pos = Vector2(hb.cX, hb.cY)
-  val rot = Math.random().toFloat()
+  val rot = Math.random().toFloat().times(359f)
+  val rotvel = Math.random().times(25f)
   val vel = Vector2(MathUtils.random(-1f, 1f).scale(), MathUtils.random(-1f, 1f).scale())
   val drag = Vector2(0.999f, 0.999f)
   val grav = Vector2(0.0f, (-200f).scale())
@@ -51,6 +52,7 @@ class Confetti(hb: Hitbox) : AbstractGameEffect() {
     applyDrag()
     applyGravity()
     pos.add(vel.cpy().scl(Gdx.graphics.rawDeltaTime))
+    rot.plus(rotvel.times(Gdx.graphics.rawDeltaTime))
 
     life -= Gdx.graphics.rawDeltaTime
 
