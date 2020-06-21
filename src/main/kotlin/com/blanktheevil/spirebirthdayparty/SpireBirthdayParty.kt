@@ -1,6 +1,7 @@
 package com.blanktheevil.spirebirthdayparty
 
 import basemod.BaseMod
+import basemod.interfaces.PostInitializeSubscriber
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer
 import com.megacrit.cardcrawl.audio.Sfx
 import java.io.IOException
@@ -8,7 +9,7 @@ import java.util.*
 
 @Suppress("unused")
 @SpireInitializer
-class SpireBirthdayParty {
+class SpireBirthdayParty : PostInitializeSubscriber {
   companion object Alfred {
     var name: String = "[name not loaded]"
     var version: String = "[version not loaded]"
@@ -21,6 +22,7 @@ class SpireBirthdayParty {
     @JvmStatic
     fun initialize() {
       loadProjectProperties()
+      BaseMod.subscribe(SpireBirthdayParty())
     }
 
     private fun loadProjectProperties() {
@@ -39,11 +41,16 @@ class SpireBirthdayParty {
     }
 
     private fun loadSFX() {
-      sfx = Sfx("/com/blanktheevil/spirebirthdayparty/sounds/yay.mp3")
+      sfx = Sfx("com/blanktheevil/spirebirthdayparty/sounds/yay.mp3")
+      sfx.play(0.0f)
     }
 
-    private fun playSFX() {
-      sfx.play(0.5f)
+    fun YAAAAY() {
+      sfx.play(0.08f)
     }
+  }
+
+  override fun receivePostInitialize() {
+    loadSFX()
   }
 }
