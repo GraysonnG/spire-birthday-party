@@ -13,8 +13,8 @@ object MonsterDiePatch {
   @SpirePrefixPatch
   fun yay(monster: AbstractMonster, triggerRelics: Boolean) {
     if (!monster.isDying) {
+      SpireBirthdayParty.YAAAAY()
       for (i in 0 until 100) {
-        SpireBirthdayParty.YAAAAY()
         AbstractDungeon.effectList.add(Confetti(monster.hb))
       }
     }
