@@ -1,15 +1,12 @@
 package com.blanktheevil.spirebirthdayparty
 
-import basemod.interfaces.PostDungeonUpdateSubscriber
-import basemod.interfaces.PostRenderSubscriber
-import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer
 import java.io.IOException
 import java.util.*
 
 @Suppress("unused")
 @SpireInitializer
-class SpireBirthdayParty : PostDungeonUpdateSubscriber, PostRenderSubscriber {
+class SpireBirthdayParty {
   companion object Alfred {
     var name: String = "[name not loaded]"
     var version: String = "[version not loaded]"
@@ -36,11 +33,5 @@ class SpireBirthdayParty : PostDungeonUpdateSubscriber, PostRenderSubscriber {
         e.printStackTrace()
       }
     }
-  }
-
-  override fun receivePostDungeonUpdate() {
-  }
-
-  override fun receivePostRender(sb: SpriteBatch) {
   }
 }
